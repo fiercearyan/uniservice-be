@@ -9,5 +9,4 @@ class UniserviceApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
