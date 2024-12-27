@@ -1,20 +1,39 @@
 package com.uniservice.entity;
 
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Id;
+import java.util.List;
 
 @Document(collection = "users")
 @Data
-//@NoArgsConstructor
-//@AllArgsConstructor
 public class User {
 
     @Id
     private String id;
     private String name;
     private String phoneNumber;
+
+    @DBRef
+    private List<Vehicle> vehicles;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public List<Vehicle> getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(List<Vehicle> vehicles) {
+        this.vehicles = vehicles;
+    }
 
     public User() {}
 
